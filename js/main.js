@@ -21,20 +21,21 @@ startButton.addEventListener("click",function() {
     const range = Math.pow(difficulty,2)
     generateGrid(range)
 
-    bombs = (difficulty) => {
+    const bombsList = (difficulty) => {
         let bombsArray = []
 
-        for (i = 0; i <= maxBombs; i++) {
+        while (bombsArray.length <= maxBombs - 1) {
             const bombValue = RNG(1,difficulty)
 
             //controlla se bombValue esiste già per evitare numeri ripetuti; se è così, genera numeri casuali finché non genera un numero unico.
-            while (bombsArray.includes(bombValue)) {
-              bombValue = RNG(1,difficulty)
+            if (!bombsArray.includes(bombValue)) {
+              bombsArray.push(bombValue)
             }
         }
         return bombsArray
     }
 
+    bombs = bombsList(range)
     console.table(bombs)
 })
 

@@ -12,6 +12,7 @@ let maxScore = 0;
 // ! start game here ! //
 startButton.addEventListener("click",startGame) 
 
+
 // * GAME FUNCTIONS * //
 function startGame() {
     grid.innerHTML = ""
